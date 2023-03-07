@@ -8,25 +8,25 @@ program
   .option("-n, --name <type>", "user name")
   .option("-e, --email <type>", "user email")
   .option("-p, --phone <type>", "user phone");
-  program.parse(process.argv);
-  const options = program.opts();
+program.parse(process.argv);
+const options = program.opts();
 
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
-      contacts.listContacts()
+      contacts.listContacts();
       break;
 
     case "get":
-      contacts.getContactById(id)
+      contacts.getContactById(id);
       break;
 
     case "add":
-      contacts.addContact(name, email, phone)
+      contacts.addContact(name, email, phone);
       break;
 
     case "remove":
-      contacts.removeContact(id)
+      contacts.removeContact(id);
       break;
 
     default:
