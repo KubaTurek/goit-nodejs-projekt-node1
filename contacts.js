@@ -1,5 +1,4 @@
 const fs = require("fs").promises;
-const path = require("path");
 
 const contactsPath = "./db/contacts.json";
 
@@ -13,7 +12,7 @@ function getContactById(contactId) {
   fs.readFile(contactsPath).then((jsonData) => {
     const data = JSON.parse(jsonData);
     const contact = data.find((contact) => contact.id === `${contactId}`);
-    if (contact === undefined) {
+    if (!contact) {
       console.log("There is no contact with this ID");
     } else {
       console.table(contact);
